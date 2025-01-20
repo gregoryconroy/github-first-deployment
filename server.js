@@ -3,9 +3,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve the HTML file
 app.get('/', (_, res) => {
   res.sendFile(path.join(__dirname, 'public/views', 'page.html'));
+});
+
+app.get('/api', (req, res) => {
+  res.json({ message: "Greetings from Greg's server" });
 });
 
 app.listen(PORT, () => {
